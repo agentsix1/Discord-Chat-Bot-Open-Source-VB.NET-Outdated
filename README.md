@@ -1,6 +1,12 @@
 # Discord-Chat-Bot-Open-Source-VB.NET
 DCBOS - A project for easy use of discord chat bots. This is a VB.NET coded bot completely open source for the public!
 
+You can download this bot at (Once the bot is in a stable working order): https://opendownloads.gq/discord/
+All information about the bot will be more then likely posted there!
+
+Plans Completed:
+# nothing quite yet :(
+
 Plans:
 - Custom Themes
 - Add/Remove/Edit Custom Commands

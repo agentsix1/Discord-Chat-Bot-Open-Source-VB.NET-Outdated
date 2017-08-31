@@ -1,0 +1,11 @@
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\bin\Debug\Discord-Chat-Bot-Open-Source-VB.NET.exe.config
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\bin\Debug\Discord-Chat-Bot-Open-Source-VB.NET.exe
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\bin\Debug\Discord-Chat-Bot-Open-Source-VB.NET.pdb
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\bin\Debug\Discord-Chat-Bot-Open-Source-VB.NET.xml
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord-Chat-Bot-Open-Source-VB.NET.vbprojResolveAssemblyReference.cache
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmMain.resources
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.Resources.resources
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord-Chat-Bot-Open-Source-VB.NET.vbproj.GenerateResource.Cache
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord-Chat-Bot-Open-Source-VB.NET.exe
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord-Chat-Bot-Open-Source-VB.NET.xml
+c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord-Chat-Bot-Open-Source-VB.NET.pdb

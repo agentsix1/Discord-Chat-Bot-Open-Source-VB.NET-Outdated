@@ -5,7 +5,7 @@ You can download this bot at (Once the bot is in a stable working order): https:
 All information about the bot will be more then likely posted there!
 
 Plans Completed:
-# nothing quite yet :(
+- nothing quite yet :(
 
 Plans:
 - Custom Themes

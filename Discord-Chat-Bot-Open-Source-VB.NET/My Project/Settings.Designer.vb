@@ -65,6 +65,42 @@ Namespace My
                 Me("Build") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Chat() As String
+            Get
+                Return CType(Me("Chat"),String)
+            End Get
+            Set
+                Me("Chat") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Users() As String
+            Get
+                Return CType(Me("Users"),String)
+            End Get
+            Set
+                Me("Users") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Server() As String
+            Get
+                Return CType(Me("Server"),String)
+            End Get
+            Set
+                Me("Server") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

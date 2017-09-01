@@ -29,21 +29,21 @@ Partial Class frmMain
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.tsChannels = New System.Windows.Forms.ToolStrip()
         Me.tmrAlert = New System.Windows.Forms.Timer(Me.components)
-        Me.tmrUptime = New System.Windows.Forms.Timer(Me.components)
-        Me.miAbout = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miHelp = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miExit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miChatAutoScroll = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miDisconnect = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miConnect = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tmrGeneral = New System.Windows.Forms.Timer(Me.components)
         Me.tbMessage = New System.Windows.Forms.TextBox()
         Me.wbUsers = New System.Windows.Forms.WebBrowser()
         Me.wbServer = New System.Windows.Forms.WebBrowser()
-        Me.msMenu = New System.Windows.Forms.MenuStrip()
         Me.tmrStream = New System.Windows.Forms.Timer(Me.components)
         Me.wbChat = New System.Windows.Forms.WebBrowser()
+        Me.msMenu = New System.Windows.Forms.MenuStrip()
+        Me.miFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miConnect = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miDisconnect = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miChatAutoScroll = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miHelp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsChannels.SuspendLayout()
         Me.msMenu.SuspendLayout()
         Me.SuspendLayout()
@@ -90,7 +90,7 @@ Partial Class frmMain
         Me.tsChannels.Dock = System.Windows.Forms.DockStyle.None
         Me.tsChannels.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.tsChannels.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tslAll})
-        Me.tsChannels.Location = New System.Drawing.Point(0, 25)
+        Me.tsChannels.Location = New System.Drawing.Point(0, 23)
         Me.tsChannels.Name = "tsChannels"
         Me.tsChannels.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
         Me.tsChannels.Size = New System.Drawing.Size(977, 25)
@@ -101,62 +101,10 @@ Partial Class frmMain
         Me.tmrAlert.Enabled = True
         Me.tmrAlert.Interval = 1000
         '
-        'tmrUptime
+        'tmrGeneral
         '
-        Me.tmrUptime.Enabled = True
-        Me.tmrUptime.Interval = 1
-        '
-        'miAbout
-        '
-        Me.miAbout.Name = "miAbout"
-        Me.miAbout.Size = New System.Drawing.Size(107, 22)
-        Me.miAbout.Text = "About"
-        '
-        'miHelp
-        '
-        Me.miHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miAbout})
-        Me.miHelp.Name = "miHelp"
-        Me.miHelp.Size = New System.Drawing.Size(44, 20)
-        Me.miHelp.Text = "Help"
-        '
-        'miSettings
-        '
-        Me.miSettings.Name = "miSettings"
-        Me.miSettings.Size = New System.Drawing.Size(61, 20)
-        Me.miSettings.Text = "Settings"
-        '
-        'miExit
-        '
-        Me.miExit.Name = "miExit"
-        Me.miExit.Size = New System.Drawing.Size(198, 22)
-        Me.miExit.Text = "Exit"
-        '
-        'miChatAutoScroll
-        '
-        Me.miChatAutoScroll.Checked = True
-        Me.miChatAutoScroll.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.miChatAutoScroll.Name = "miChatAutoScroll"
-        Me.miChatAutoScroll.Size = New System.Drawing.Size(198, 22)
-        Me.miChatAutoScroll.Text = "Chat Autoscroll          F4"
-        '
-        'miDisconnect
-        '
-        Me.miDisconnect.Name = "miDisconnect"
-        Me.miDisconnect.Size = New System.Drawing.Size(198, 22)
-        Me.miDisconnect.Text = "Disconnect                 F2"
-        '
-        'miConnect
-        '
-        Me.miConnect.Name = "miConnect"
-        Me.miConnect.Size = New System.Drawing.Size(198, 22)
-        Me.miConnect.Text = "Connect                      F1"
-        '
-        'miFile
-        '
-        Me.miFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miConnect, Me.miDisconnect, Me.miChatAutoScroll, Me.miExit})
-        Me.miFile.Name = "miFile"
-        Me.miFile.Size = New System.Drawing.Size(37, 20)
-        Me.miFile.Text = "File"
+        Me.tmrGeneral.Enabled = True
+        Me.tmrGeneral.Interval = 10
         '
         'tbMessage
         '
@@ -191,15 +139,6 @@ Partial Class frmMain
         Me.wbServer.Size = New System.Drawing.Size(220, 80)
         Me.wbServer.TabIndex = 11
         '
-        'msMenu
-        '
-        Me.msMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile, Me.miSettings, Me.miHelp})
-        Me.msMenu.Location = New System.Drawing.Point(0, 0)
-        Me.msMenu.Name = "msMenu"
-        Me.msMenu.Size = New System.Drawing.Size(1197, 24)
-        Me.msMenu.TabIndex = 14
-        Me.msMenu.Text = "MenuStrip1"
-        '
         'tmrStream
         '
         Me.tmrStream.Interval = 12000
@@ -209,11 +148,73 @@ Partial Class frmMain
         Me.wbChat.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.wbChat.Location = New System.Drawing.Point(0, 50)
+        Me.wbChat.Location = New System.Drawing.Point(0, 47)
         Me.wbChat.MinimumSize = New System.Drawing.Size(20, 20)
         Me.wbChat.Name = "wbChat"
-        Me.wbChat.Size = New System.Drawing.Size(977, 635)
+        Me.wbChat.Size = New System.Drawing.Size(977, 638)
         Me.wbChat.TabIndex = 10
+        '
+        'msMenu
+        '
+        Me.msMenu.BackColor = System.Drawing.SystemColors.Control
+        Me.msMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile, Me.miSettings, Me.miHelp})
+        Me.msMenu.Location = New System.Drawing.Point(0, 0)
+        Me.msMenu.Name = "msMenu"
+        Me.msMenu.Size = New System.Drawing.Size(1197, 24)
+        Me.msMenu.TabIndex = 18
+        Me.msMenu.Text = "MenuStrip1"
+        '
+        'miFile
+        '
+        Me.miFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miConnect, Me.miDisconnect, Me.miChatAutoScroll, Me.miExit})
+        Me.miFile.Name = "miFile"
+        Me.miFile.Size = New System.Drawing.Size(37, 20)
+        Me.miFile.Text = "File"
+        '
+        'miConnect
+        '
+        Me.miConnect.Name = "miConnect"
+        Me.miConnect.Size = New System.Drawing.Size(198, 22)
+        Me.miConnect.Text = "Connect                      F1"
+        '
+        'miDisconnect
+        '
+        Me.miDisconnect.Name = "miDisconnect"
+        Me.miDisconnect.Size = New System.Drawing.Size(198, 22)
+        Me.miDisconnect.Text = "Disconnect                 F2"
+        '
+        'miChatAutoScroll
+        '
+        Me.miChatAutoScroll.Checked = True
+        Me.miChatAutoScroll.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.miChatAutoScroll.Name = "miChatAutoScroll"
+        Me.miChatAutoScroll.Size = New System.Drawing.Size(198, 22)
+        Me.miChatAutoScroll.Text = "Chat Autoscroll          F4"
+        '
+        'miExit
+        '
+        Me.miExit.Name = "miExit"
+        Me.miExit.Size = New System.Drawing.Size(198, 22)
+        Me.miExit.Text = "Exit"
+        '
+        'miSettings
+        '
+        Me.miSettings.Name = "miSettings"
+        Me.miSettings.Size = New System.Drawing.Size(61, 20)
+        Me.miSettings.Text = "Settings"
+        '
+        'miHelp
+        '
+        Me.miHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miAbout})
+        Me.miHelp.Name = "miHelp"
+        Me.miHelp.Size = New System.Drawing.Size(44, 20)
+        Me.miHelp.Text = "Help"
+        '
+        'miAbout
+        '
+        Me.miAbout.Name = "miAbout"
+        Me.miAbout.Size = New System.Drawing.Size(107, 22)
+        Me.miAbout.Text = "About"
         '
         'frmMain
         '
@@ -221,12 +222,12 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1197, 705)
+        Me.Controls.Add(Me.msMenu)
         Me.Controls.Add(Me.cbMessage)
         Me.Controls.Add(Me.tsChannels)
         Me.Controls.Add(Me.tbMessage)
         Me.Controls.Add(Me.wbUsers)
         Me.Controls.Add(Me.wbServer)
-        Me.Controls.Add(Me.msMenu)
         Me.Controls.Add(Me.wbChat)
         Me.Name = "frmMain"
         Me.Text = "Discord Chat Bot (Open Source) v%VER% - Made By: Agentsix1/Jeremy"
@@ -245,19 +246,19 @@ Partial Class frmMain
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents tsChannels As ToolStrip
     Friend WithEvents tmrAlert As Timer
-    Friend WithEvents tmrUptime As Timer
-    Friend WithEvents miAbout As ToolStripMenuItem
-    Friend WithEvents miHelp As ToolStripMenuItem
-    Friend WithEvents miSettings As ToolStripMenuItem
-    Friend WithEvents miExit As ToolStripMenuItem
-    Friend WithEvents miChatAutoScroll As ToolStripMenuItem
-    Friend WithEvents miDisconnect As ToolStripMenuItem
-    Friend WithEvents miConnect As ToolStripMenuItem
-    Friend WithEvents miFile As ToolStripMenuItem
+    Friend WithEvents tmrGeneral As Timer
     Friend WithEvents tbMessage As TextBox
     Friend WithEvents wbUsers As WebBrowser
     Friend WithEvents wbServer As WebBrowser
-    Friend WithEvents msMenu As MenuStrip
     Friend WithEvents tmrStream As Timer
     Friend WithEvents wbChat As WebBrowser
+    Friend WithEvents msMenu As MenuStrip
+    Friend WithEvents miFile As ToolStripMenuItem
+    Friend WithEvents miConnect As ToolStripMenuItem
+    Friend WithEvents miDisconnect As ToolStripMenuItem
+    Friend WithEvents miChatAutoScroll As ToolStripMenuItem
+    Friend WithEvents miExit As ToolStripMenuItem
+    Friend WithEvents miSettings As ToolStripMenuItem
+    Friend WithEvents miHelp As ToolStripMenuItem
+    Friend WithEvents miAbout As ToolStripMenuItem
 End Class

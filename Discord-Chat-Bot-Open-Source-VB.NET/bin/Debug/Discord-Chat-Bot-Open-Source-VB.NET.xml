@@ -22,5 +22,25 @@ Discord-Chat-Bot-Open-Source-VB.NET
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Discord_Chat_Bot_Open_Source_VB.NET.My.Resources.Resources.default_theme">
+<summary>
+  Looks up a localized string similar to .
+</summary>
+</member>
+<member name="P:Discord_Chat_Bot_Open_Source_VB.NET.My.Resources.Resources.settings">
+<summary>
+  Looks up a localized string similar to Streamers: jeremy_youtube,timokles,endeavorgaming,slevanas,criscowild,neoslash72,oomoomanoo,speedruntrainer
+stream-announce-live: %username% is now LIVE - %URL%%NL%%TITLE%
+stream-announce-offline: %username% is no longer streaming.
+admin: ZeroRBDash15,agentsix1
+user: Timokles,speedruntrainer,Slevanas,CriscoWild,NeoSlash72,A51 Trooper,Dazja,redtrainer57,Ryuknote322
+autoscroll: false
+trigger: !
+auto-scroll-default: true
+auto-connect: false
+connected-server: Perfect Dark XBLA
+stream-announce-channel: [rest of string was truncated]&quot;;.
+</summary>
+</member>
 </members>
 </doc>

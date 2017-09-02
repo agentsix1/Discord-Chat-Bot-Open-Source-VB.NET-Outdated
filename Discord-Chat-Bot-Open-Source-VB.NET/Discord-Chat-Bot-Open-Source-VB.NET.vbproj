@@ -108,6 +108,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCommands.Designer.vb">
+      <DependentUpon>frmCommands.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCommands.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomCommands.Designer.vb">
+      <DependentUpon>frmCustomCommands.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomCommands.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmCommands.resx">
+      <DependentUpon>frmCommands.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomCommands.resx">
+      <DependentUpon>frmCustomCommands.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>

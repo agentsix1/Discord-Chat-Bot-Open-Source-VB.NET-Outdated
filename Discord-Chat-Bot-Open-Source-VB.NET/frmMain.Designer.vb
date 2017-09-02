@@ -39,11 +39,15 @@ Partial Class frmMain
         Me.miFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.miConnect = New System.Windows.Forms.ToolStripMenuItem()
         Me.miDisconnect = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miChatAutoScroll = New System.Windows.Forms.ToolStripMenuItem()
         Me.miExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.miSettings = New System.Windows.Forms.ToolStripMenuItem()
         Me.miHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.miAbout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miCustomCommands = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miDeafultCommands = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miChatAutoScroll = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miWebsite = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miCommandWiki = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsChannels.SuspendLayout()
         Me.msMenu.SuspendLayout()
         Me.SuspendLayout()
@@ -166,7 +170,7 @@ Partial Class frmMain
         '
         'miFile
         '
-        Me.miFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miConnect, Me.miDisconnect, Me.miChatAutoScroll, Me.miExit})
+        Me.miFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miConnect, Me.miDisconnect, Me.miExit})
         Me.miFile.Name = "miFile"
         Me.miFile.Size = New System.Drawing.Size(37, 20)
         Me.miFile.Text = "File"
@@ -174,14 +178,52 @@ Partial Class frmMain
         'miConnect
         '
         Me.miConnect.Name = "miConnect"
-        Me.miConnect.Size = New System.Drawing.Size(198, 22)
+        Me.miConnect.Size = New System.Drawing.Size(197, 22)
         Me.miConnect.Text = "Connect                      F1"
         '
         'miDisconnect
         '
         Me.miDisconnect.Name = "miDisconnect"
-        Me.miDisconnect.Size = New System.Drawing.Size(198, 22)
+        Me.miDisconnect.Size = New System.Drawing.Size(197, 22)
         Me.miDisconnect.Text = "Disconnect                 F2"
+        '
+        'miExit
+        '
+        Me.miExit.Name = "miExit"
+        Me.miExit.Size = New System.Drawing.Size(197, 22)
+        Me.miExit.Text = "Exit"
+        '
+        'miSettings
+        '
+        Me.miSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCustomCommands, Me.miDeafultCommands, Me.miChatAutoScroll})
+        Me.miSettings.Name = "miSettings"
+        Me.miSettings.Size = New System.Drawing.Size(61, 20)
+        Me.miSettings.Text = "Settings"
+        '
+        'miHelp
+        '
+        Me.miHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miAbout, Me.miWebsite, Me.miCommandWiki})
+        Me.miHelp.Name = "miHelp"
+        Me.miHelp.Size = New System.Drawing.Size(44, 20)
+        Me.miHelp.Text = "Help"
+        '
+        'miAbout
+        '
+        Me.miAbout.Name = "miAbout"
+        Me.miAbout.Size = New System.Drawing.Size(157, 22)
+        Me.miAbout.Text = "About"
+        '
+        'miCustomCommands
+        '
+        Me.miCustomCommands.Name = "miCustomCommands"
+        Me.miCustomCommands.Size = New System.Drawing.Size(198, 22)
+        Me.miCustomCommands.Text = "Custom Commands"
+        '
+        'miDeafultCommands
+        '
+        Me.miDeafultCommands.Name = "miDeafultCommands"
+        Me.miDeafultCommands.Size = New System.Drawing.Size(198, 22)
+        Me.miDeafultCommands.Text = "Default Commands"
         '
         'miChatAutoScroll
         '
@@ -191,30 +233,17 @@ Partial Class frmMain
         Me.miChatAutoScroll.Size = New System.Drawing.Size(198, 22)
         Me.miChatAutoScroll.Text = "Chat Autoscroll          F4"
         '
-        'miExit
+        'miWebsite
         '
-        Me.miExit.Name = "miExit"
-        Me.miExit.Size = New System.Drawing.Size(198, 22)
-        Me.miExit.Text = "Exit"
+        Me.miWebsite.Name = "miWebsite"
+        Me.miWebsite.Size = New System.Drawing.Size(157, 22)
+        Me.miWebsite.Text = "Website"
         '
-        'miSettings
+        'miCommandWiki
         '
-        Me.miSettings.Name = "miSettings"
-        Me.miSettings.Size = New System.Drawing.Size(61, 20)
-        Me.miSettings.Text = "Settings"
-        '
-        'miHelp
-        '
-        Me.miHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miAbout})
-        Me.miHelp.Name = "miHelp"
-        Me.miHelp.Size = New System.Drawing.Size(44, 20)
-        Me.miHelp.Text = "Help"
-        '
-        'miAbout
-        '
-        Me.miAbout.Name = "miAbout"
-        Me.miAbout.Size = New System.Drawing.Size(107, 22)
-        Me.miAbout.Text = "About"
+        Me.miCommandWiki.Name = "miCommandWiki"
+        Me.miCommandWiki.Size = New System.Drawing.Size(157, 22)
+        Me.miCommandWiki.Text = "Command Wiki"
         '
         'frmMain
         '
@@ -256,9 +285,13 @@ Partial Class frmMain
     Friend WithEvents miFile As ToolStripMenuItem
     Friend WithEvents miConnect As ToolStripMenuItem
     Friend WithEvents miDisconnect As ToolStripMenuItem
-    Friend WithEvents miChatAutoScroll As ToolStripMenuItem
     Friend WithEvents miExit As ToolStripMenuItem
     Friend WithEvents miSettings As ToolStripMenuItem
     Friend WithEvents miHelp As ToolStripMenuItem
     Friend WithEvents miAbout As ToolStripMenuItem
+    Friend WithEvents miCustomCommands As ToolStripMenuItem
+    Friend WithEvents miDeafultCommands As ToolStripMenuItem
+    Friend WithEvents miChatAutoScroll As ToolStripMenuItem
+    Friend WithEvents miWebsite As ToolStripMenuItem
+    Friend WithEvents miCommandWiki As ToolStripMenuItem
 End Class

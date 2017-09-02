@@ -36,4 +36,8 @@ Public Class frmMain
             onetime = False
         End If
     End Sub
+
+    Private Sub miDeafultCommands_Click(sender As Object, e As EventArgs) Handles miDeafultCommands.Click
+        frmCommands.Show()
+    End Sub
 End Class

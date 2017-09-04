@@ -61,7 +61,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to .
+        '''  Looks up a localized string similar to main-backcolor: Control
+        '''main-forecolor: Black
+        '''menu-backcolor: Control
+        '''menu-forecolor: Black
+        '''channel-tab-backcolor-unselected: ControlLight
+        '''channel-tab-backcolor-selected: ControlDarkDark
+        '''channel-tab-forecolor-unselected: Black
+        '''channel-tab-forecolor-selected: White
+        '''channel-bar-backcolor: Black
+        '''chat-username-html: pink
+        '''chat-channel-html: lime
+        '''chat-brackets-html: grey
+        '''chat-message-html: white
+        '''chat-time-html: orange
+        '''chat-background-html: Black
+        '''chat-bold: false
+        '''chat-italics: false
+        '''chat-underline [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property default_theme() As String
             Get

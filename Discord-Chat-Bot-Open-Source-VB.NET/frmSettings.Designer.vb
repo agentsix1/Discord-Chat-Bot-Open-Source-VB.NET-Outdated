@@ -24,8 +24,6 @@ Partial Class frmSettings
     Private Sub InitializeComponent()
         Me.btnApply = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.cbAnnounceStream = New System.Windows.Forms.ComboBox()
-        Me.lblAnnounceStream = New System.Windows.Forms.Label()
         Me.chkAutoConnect = New System.Windows.Forms.CheckBox()
         Me.chkAutoScroll = New System.Windows.Forms.CheckBox()
         Me.cbServers = New System.Windows.Forms.ComboBox()
@@ -34,9 +32,6 @@ Partial Class frmSettings
         Me.gbSettings = New System.Windows.Forms.GroupBox()
         Me.lblTrigger = New System.Windows.Forms.Label()
         Me.tbTrigger = New System.Windows.Forms.TextBox()
-        Me.btnAddServer = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.tbClientID = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tbToken = New System.Windows.Forms.TextBox()
         Me.gbDetails = New System.Windows.Forms.GroupBox()
@@ -46,7 +41,8 @@ Partial Class frmSettings
         '
         'btnApply
         '
-        Me.btnApply.Location = New System.Drawing.Point(144, 255)
+        Me.btnApply.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnApply.Location = New System.Drawing.Point(144, 155)
         Me.btnApply.Name = "btnApply"
         Me.btnApply.Size = New System.Drawing.Size(58, 23)
         Me.btnApply.TabIndex = 9
@@ -55,33 +51,13 @@ Partial Class frmSettings
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(293, 255)
+        Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClose.Location = New System.Drawing.Point(293, 155)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(51, 23)
         Me.btnClose.TabIndex = 7
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
-        '
-        'cbAnnounceStream
-        '
-        Me.cbAnnounceStream.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.cbAnnounceStream.Enabled = False
-        Me.cbAnnounceStream.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cbAnnounceStream.ForeColor = System.Drawing.Color.White
-        Me.cbAnnounceStream.FormattingEnabled = True
-        Me.cbAnnounceStream.Location = New System.Drawing.Point(9, 82)
-        Me.cbAnnounceStream.Name = "cbAnnounceStream"
-        Me.cbAnnounceStream.Size = New System.Drawing.Size(321, 21)
-        Me.cbAnnounceStream.TabIndex = 5
-        '
-        'lblAnnounceStream
-        '
-        Me.lblAnnounceStream.AutoSize = True
-        Me.lblAnnounceStream.Location = New System.Drawing.Point(6, 66)
-        Me.lblAnnounceStream.Name = "lblAnnounceStream"
-        Me.lblAnnounceStream.Size = New System.Drawing.Size(166, 13)
-        Me.lblAnnounceStream.TabIndex = 4
-        Me.lblAnnounceStream.Text = "Streamer Announcement Channel"
         '
         'chkAutoConnect
         '
@@ -126,7 +102,8 @@ Partial Class frmSettings
         '
         'btnApplyClose
         '
-        Me.btnApplyClose.Location = New System.Drawing.Point(208, 255)
+        Me.btnApplyClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnApplyClose.Location = New System.Drawing.Point(208, 155)
         Me.btnApplyClose.Name = "btnApplyClose"
         Me.btnApplyClose.Size = New System.Drawing.Size(79, 23)
         Me.btnApplyClose.TabIndex = 8
@@ -135,16 +112,14 @@ Partial Class frmSettings
         '
         'gbSettings
         '
-        Me.gbSettings.Controls.Add(Me.cbAnnounceStream)
-        Me.gbSettings.Controls.Add(Me.lblAnnounceStream)
         Me.gbSettings.Controls.Add(Me.chkAutoConnect)
         Me.gbSettings.Controls.Add(Me.chkAutoScroll)
         Me.gbSettings.Controls.Add(Me.cbServers)
         Me.gbSettings.Controls.Add(Me.Label3)
         Me.gbSettings.ForeColor = System.Drawing.Color.White
-        Me.gbSettings.Location = New System.Drawing.Point(8, 130)
+        Me.gbSettings.Location = New System.Drawing.Point(8, 81)
         Me.gbSettings.Name = "gbSettings"
-        Me.gbSettings.Size = New System.Drawing.Size(336, 116)
+        Me.gbSettings.Size = New System.Drawing.Size(336, 66)
         Me.gbSettings.TabIndex = 6
         Me.gbSettings.TabStop = False
         Me.gbSettings.Text = "Bot Settings"
@@ -152,7 +127,7 @@ Partial Class frmSettings
         'lblTrigger
         '
         Me.lblTrigger.AutoSize = True
-        Me.lblTrigger.Location = New System.Drawing.Point(249, 88)
+        Me.lblTrigger.Location = New System.Drawing.Point(254, 51)
         Me.lblTrigger.Name = "lblTrigger"
         Me.lblTrigger.Size = New System.Drawing.Size(40, 13)
         Me.lblTrigger.TabIndex = 5
@@ -163,43 +138,13 @@ Partial Class frmSettings
         Me.tbTrigger.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.tbTrigger.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.tbTrigger.ForeColor = System.Drawing.Color.White
-        Me.tbTrigger.Location = New System.Drawing.Point(295, 88)
+        Me.tbTrigger.Location = New System.Drawing.Point(300, 51)
         Me.tbTrigger.MaxLength = 1
         Me.tbTrigger.Name = "tbTrigger"
         Me.tbTrigger.Size = New System.Drawing.Size(30, 13)
         Me.tbTrigger.TabIndex = 4
         Me.tbTrigger.Text = "!"
         Me.tbTrigger.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'btnAddServer
-        '
-        Me.btnAddServer.Enabled = False
-        Me.btnAddServer.ForeColor = System.Drawing.Color.Black
-        Me.btnAddServer.Location = New System.Drawing.Point(9, 83)
-        Me.btnAddServer.Name = "btnAddServer"
-        Me.btnAddServer.Size = New System.Drawing.Size(78, 23)
-        Me.btnAddServer.TabIndex = 5
-        Me.btnAddServer.Text = "Add Server"
-        Me.btnAddServer.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 48)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(66, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Bot Client ID"
-        '
-        'tbClientID
-        '
-        Me.tbClientID.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.tbClientID.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.tbClientID.ForeColor = System.Drawing.Color.White
-        Me.tbClientID.Location = New System.Drawing.Point(9, 64)
-        Me.tbClientID.Name = "tbClientID"
-        Me.tbClientID.Size = New System.Drawing.Size(321, 13)
-        Me.tbClientID.TabIndex = 2
         '
         'Label1
         '
@@ -224,15 +169,12 @@ Partial Class frmSettings
         '
         Me.gbDetails.Controls.Add(Me.lblTrigger)
         Me.gbDetails.Controls.Add(Me.tbTrigger)
-        Me.gbDetails.Controls.Add(Me.btnAddServer)
-        Me.gbDetails.Controls.Add(Me.Label2)
-        Me.gbDetails.Controls.Add(Me.tbClientID)
         Me.gbDetails.Controls.Add(Me.Label1)
         Me.gbDetails.Controls.Add(Me.tbToken)
         Me.gbDetails.ForeColor = System.Drawing.Color.White
-        Me.gbDetails.Location = New System.Drawing.Point(8, 7)
+        Me.gbDetails.Location = New System.Drawing.Point(8, 5)
         Me.gbDetails.Name = "gbDetails"
-        Me.gbDetails.Size = New System.Drawing.Size(336, 116)
+        Me.gbDetails.Size = New System.Drawing.Size(336, 70)
         Me.gbDetails.TabIndex = 5
         Me.gbDetails.TabStop = False
         Me.gbDetails.Text = "Bot Detail Settings"
@@ -242,14 +184,14 @@ Partial Class frmSettings
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(359, 289)
+        Me.ClientSize = New System.Drawing.Size(353, 184)
         Me.Controls.Add(Me.btnApply)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnApplyClose)
         Me.Controls.Add(Me.gbSettings)
         Me.Controls.Add(Me.gbDetails)
         Me.Name = "frmSettings"
-        Me.Text = "frmSettings"
+        Me.Text = "Settings"
         Me.gbSettings.ResumeLayout(False)
         Me.gbSettings.PerformLayout()
         Me.gbDetails.ResumeLayout(False)
@@ -260,8 +202,6 @@ Partial Class frmSettings
 
     Friend WithEvents btnApply As Button
     Friend WithEvents btnClose As Button
-    Friend WithEvents cbAnnounceStream As ComboBox
-    Friend WithEvents lblAnnounceStream As Label
     Friend WithEvents chkAutoConnect As CheckBox
     Friend WithEvents chkAutoScroll As CheckBox
     Friend WithEvents cbServers As ComboBox
@@ -270,9 +210,6 @@ Partial Class frmSettings
     Friend WithEvents gbSettings As GroupBox
     Friend WithEvents lblTrigger As Label
     Friend WithEvents tbTrigger As TextBox
-    Friend WithEvents btnAddServer As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents tbClientID As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents tbToken As TextBox
     Friend WithEvents gbDetails As GroupBox

@@ -9,8 +9,6 @@ c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Sour
 c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord-Chat-Bot-Open-Source-VB.NET.exe
 c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord-Chat-Bot-Open-Source-VB.NET.xml
 c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord-Chat-Bot-Open-Source-VB.NET.pdb
-c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\bin\Debug\Resources\default-theme.ini
-c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\bin\Debug\Resources\settings.ini
 c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmSettings.resources
 c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmThemeEditor.resources
 c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\bin\Debug\Discord.Net.dll
@@ -27,3 +25,4 @@ c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Sour
 c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\bin\Debug\RestSharp.xml
 C:\Users\Jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmCommands.resources
 C:\Users\Jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmCustomCommands.resources
+C:\Users\Jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmUpdates.resources

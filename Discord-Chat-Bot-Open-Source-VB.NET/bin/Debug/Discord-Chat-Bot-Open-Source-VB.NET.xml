@@ -24,7 +24,24 @@ Discord-Chat-Bot-Open-Source-VB.NET
 </member>
 <member name="P:Discord_Chat_Bot_Open_Source_VB.NET.My.Resources.Resources.default_theme">
 <summary>
-  Looks up a localized string similar to .
+  Looks up a localized string similar to main-backcolor: Control
+main-forecolor: Black
+menu-backcolor: Control
+menu-forecolor: Black
+channel-tab-backcolor-unselected: ControlLight
+channel-tab-backcolor-selected: ControlDarkDark
+channel-tab-forecolor-unselected: Black
+channel-tab-forecolor-selected: White
+channel-bar-backcolor: Black
+chat-username-html: pink
+chat-channel-html: lime
+chat-brackets-html: grey
+chat-message-html: white
+chat-time-html: orange
+chat-background-html: Black
+chat-bold: false
+chat-italics: false
+chat-underline [rest of string was truncated]&quot;;.
 </summary>
 </member>
 <member name="P:Discord_Chat_Bot_Open_Source_VB.NET.My.Resources.Resources.settings">

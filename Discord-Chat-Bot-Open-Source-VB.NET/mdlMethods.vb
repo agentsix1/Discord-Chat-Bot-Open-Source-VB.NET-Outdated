@@ -99,4 +99,71 @@ Module mdlMethods
         ' Remove HTML tags.
         Return Regex.Replace(html, "<.*?>", "")
     End Function
+
+    Public Sub toggleCommandEdit(state As Boolean)
+
+        If state Then
+            If frmCommands.lvCommands.SelectedItems(0).Index > -1 Then
+                frmCommands.btnEdit.Enabled = False
+                frmCommands.btnSave.Enabled = True
+                frmCommands.tbPermission.Enabled = True
+                frmCommands.tbPermission.Text = frmCommands.lvCommands.SelectedItems(0).SubItems.Item(3).Text
+                frmCommands.rbEnabled.Enabled = True
+                frmCommands.rbDisabled.Enabled = True
+                If frmCommands.lvCommands.SelectedItems(0).SubItems.Item(4).Text.Equals("True") Then
+                    frmCommands.rbEnabled.Checked = True
+                Else
+                    frmCommands.rbDisabled.Checked = True
+                End If
+            End If
+        Else
+            frmCommands.btnEdit.Enabled = True
+            frmCommands.btnSave.Enabled = False
+            frmCommands.tbPermission.Enabled = False
+            frmCommands.tbPermission.Text = "0"
+            frmCommands.rbEnabled.Enabled = False
+            frmCommands.rbDisabled.Enabled = False
+            frmCommands.rbEnabled.Checked = False
+            frmCommands.rbDisabled.Checked = False
+        End If
+    End Sub
+
+    Public Sub wait(ByVal interval As Integer)
+        Dim stopW As New Stopwatch
+        stopW.Start()
+        Do While stopW.ElapsedMilliseconds < interval
+            ' Allows your UI to remain responsive
+            Application.DoEvents()
+        Loop
+        stopW.Stop()
+    End Sub
+
+    Public Sub addChat(where As String, add As String)
+        Try
+            Dim tempa As String() = frmMain.channels(where)
+            Dim temp As List(Of String) = tempa.ToList
+            temp.Add(add)
+            tempa = temp.ToArray
+            frmMain.channels.Remove(where)
+            frmMain.channels.Add(where, tempa)
+        Catch ex As Exception
+            Try
+                Dim tempa As String() = frmMain.channels(where)
+                Dim temp As List(Of String) = tempa.ToList
+                temp.Add(add)
+                tempa = temp.ToArray
+                frmMain.channels.Add(where, tempa)
+            Catch ex1 As Exception
+            End Try
+        End Try
+    End Sub
+
+    Public Function getChat(where As String) As String()
+        Return frmMain.channels(where)
+    End Function
+
+    Public Function addGetChat(where As String, add As String) As String()
+        addChat(where, add)
+        Return getChat(where)
+    End Function
 End Module

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,13 @@ Partial Class frmMain
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.tmrStreamerUpdate = New System.Windows.Forms.Timer(Me.components)
         Me.cbMessage = New System.Windows.Forms.ComboBox()
         Me.tslAll = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.tsConsole = New System.Windows.Forms.ToolStripLabel()
         Me.tsChannels = New System.Windows.Forms.ToolStrip()
         Me.tmrAlert = New System.Windows.Forms.Timer(Me.components)
         Me.tmrGeneral = New System.Windows.Forms.Timer(Me.components)
@@ -40,14 +40,18 @@ Partial Class frmMain
         Me.miConnect = New System.Windows.Forms.ToolStripMenuItem()
         Me.miDisconnect = New System.Windows.Forms.ToolStripMenuItem()
         Me.miExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miSettingsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.miSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miHelp = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.miCustomCommands = New System.Windows.Forms.ToolStripMenuItem()
         Me.miDeafultCommands = New System.Windows.Forms.ToolStripMenuItem()
         Me.miChatAutoScroll = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miAbout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.miWebsite = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miSupport = New System.Windows.Forms.ToolStripMenuItem()
         Me.miCommandWiki = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckForUpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.tsChannels.SuspendLayout()
         Me.msMenu.SuspendLayout()
         Me.SuspendLayout()
@@ -77,13 +81,13 @@ Partial Class frmMain
         Me.tslAll.Size = New System.Drawing.Size(73, 22)
         Me.tslAll.Text = "All Channels"
         '
-        'ToolStripLabel1
+        'tsConsole
         '
-        Me.ToolStripLabel1.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.ToolStripLabel1.ForeColor = System.Drawing.Color.White
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(50, 22)
-        Me.ToolStripLabel1.Text = "Console"
+        Me.tsConsole.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.tsConsole.ForeColor = System.Drawing.Color.White
+        Me.tsConsole.Name = "tsConsole"
+        Me.tsConsole.Size = New System.Drawing.Size(50, 22)
+        Me.tsConsole.Text = "Console"
         '
         'tsChannels
         '
@@ -93,7 +97,7 @@ Partial Class frmMain
         Me.tsChannels.BackColor = System.Drawing.Color.Black
         Me.tsChannels.Dock = System.Windows.Forms.DockStyle.None
         Me.tsChannels.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.tsChannels.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tslAll})
+        Me.tsChannels.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsConsole, Me.tslAll})
         Me.tsChannels.Location = New System.Drawing.Point(0, 23)
         Me.tsChannels.Name = "tsChannels"
         Me.tsChannels.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
@@ -107,7 +111,6 @@ Partial Class frmMain
         '
         'tmrGeneral
         '
-        Me.tmrGeneral.Enabled = True
         Me.tmrGeneral.Interval = 10
         '
         'tbMessage
@@ -161,7 +164,7 @@ Partial Class frmMain
         'msMenu
         '
         Me.msMenu.BackColor = System.Drawing.SystemColors.Control
-        Me.msMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile, Me.miSettings, Me.miHelp})
+        Me.msMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile, Me.miSettingsMenu, Me.miAbout, Me.CheckForUpdateToolStripMenuItem})
         Me.msMenu.Location = New System.Drawing.Point(0, 0)
         Me.msMenu.Name = "msMenu"
         Me.msMenu.Size = New System.Drawing.Size(1197, 24)
@@ -193,45 +196,53 @@ Partial Class frmMain
         Me.miExit.Size = New System.Drawing.Size(197, 22)
         Me.miExit.Text = "Exit"
         '
+        'miSettingsMenu
+        '
+        Me.miSettingsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miSettings, Me.miCustomCommands, Me.miDeafultCommands, Me.miChatAutoScroll})
+        Me.miSettingsMenu.Name = "miSettingsMenu"
+        Me.miSettingsMenu.Size = New System.Drawing.Size(61, 20)
+        Me.miSettingsMenu.Text = "Settings"
+        '
         'miSettings
         '
-        Me.miSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCustomCommands, Me.miDeafultCommands, Me.miChatAutoScroll})
         Me.miSettings.Name = "miSettings"
-        Me.miSettings.Size = New System.Drawing.Size(61, 20)
-        Me.miSettings.Text = "Settings"
-        '
-        'miHelp
-        '
-        Me.miHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miAbout, Me.miWebsite, Me.miCommandWiki})
-        Me.miHelp.Name = "miHelp"
-        Me.miHelp.Size = New System.Drawing.Size(44, 20)
-        Me.miHelp.Text = "Help"
-        '
-        'miAbout
-        '
-        Me.miAbout.Name = "miAbout"
-        Me.miAbout.Size = New System.Drawing.Size(157, 22)
-        Me.miAbout.Text = "About"
+        Me.miSettings.Size = New System.Drawing.Size(200, 22)
+        Me.miSettings.Text = "Settings                        F3"
         '
         'miCustomCommands
         '
+        Me.miCustomCommands.Enabled = False
         Me.miCustomCommands.Name = "miCustomCommands"
-        Me.miCustomCommands.Size = New System.Drawing.Size(198, 22)
+        Me.miCustomCommands.Size = New System.Drawing.Size(200, 22)
         Me.miCustomCommands.Text = "Custom Commands"
         '
         'miDeafultCommands
         '
         Me.miDeafultCommands.Name = "miDeafultCommands"
-        Me.miDeafultCommands.Size = New System.Drawing.Size(198, 22)
-        Me.miDeafultCommands.Text = "Default Commands"
+        Me.miDeafultCommands.Size = New System.Drawing.Size(200, 22)
+        Me.miDeafultCommands.Text = "Default Commands   F6"
         '
         'miChatAutoScroll
         '
         Me.miChatAutoScroll.Checked = True
         Me.miChatAutoScroll.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.miChatAutoScroll.Enabled = False
         Me.miChatAutoScroll.Name = "miChatAutoScroll"
-        Me.miChatAutoScroll.Size = New System.Drawing.Size(198, 22)
+        Me.miChatAutoScroll.Size = New System.Drawing.Size(200, 22)
         Me.miChatAutoScroll.Text = "Chat Autoscroll          F4"
+        '
+        'miAbout
+        '
+        Me.miAbout.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miHelp, Me.miWebsite, Me.miSupport, Me.miCommandWiki})
+        Me.miAbout.Name = "miAbout"
+        Me.miAbout.Size = New System.Drawing.Size(52, 20)
+        Me.miAbout.Text = "About"
+        '
+        'miHelp
+        '
+        Me.miHelp.Name = "miHelp"
+        Me.miHelp.Size = New System.Drawing.Size(157, 22)
+        Me.miHelp.Text = "Help"
         '
         'miWebsite
         '
@@ -239,11 +250,33 @@ Partial Class frmMain
         Me.miWebsite.Size = New System.Drawing.Size(157, 22)
         Me.miWebsite.Text = "Website"
         '
+        'miSupport
+        '
+        Me.miSupport.Name = "miSupport"
+        Me.miSupport.Size = New System.Drawing.Size(157, 22)
+        Me.miSupport.Text = "Support"
+        '
         'miCommandWiki
         '
         Me.miCommandWiki.Name = "miCommandWiki"
         Me.miCommandWiki.Size = New System.Drawing.Size(157, 22)
         Me.miCommandWiki.Text = "Command Wiki"
+        '
+        'CheckForUpdateToolStripMenuItem
+        '
+        Me.CheckForUpdateToolStripMenuItem.Name = "CheckForUpdateToolStripMenuItem"
+        Me.CheckForUpdateToolStripMenuItem.Size = New System.Drawing.Size(113, 20)
+        Me.CheckForUpdateToolStripMenuItem.Text = "Check For Update"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(377, 3)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
+        Me.CheckBox1.TabIndex = 19
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -251,6 +284,7 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1197, 705)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.msMenu)
         Me.Controls.Add(Me.cbMessage)
         Me.Controls.Add(Me.tsChannels)
@@ -272,7 +306,7 @@ Partial Class frmMain
     Friend WithEvents tmrStreamerUpdate As Timer
     Friend WithEvents cbMessage As ComboBox
     Friend WithEvents tslAll As ToolStripLabel
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents tsConsole As ToolStripLabel
     Friend WithEvents tsChannels As ToolStrip
     Friend WithEvents tmrAlert As Timer
     Friend WithEvents tmrGeneral As Timer
@@ -286,7 +320,7 @@ Partial Class frmMain
     Friend WithEvents miConnect As ToolStripMenuItem
     Friend WithEvents miDisconnect As ToolStripMenuItem
     Friend WithEvents miExit As ToolStripMenuItem
-    Friend WithEvents miSettings As ToolStripMenuItem
+    Friend WithEvents miSettingsMenu As ToolStripMenuItem
     Friend WithEvents miHelp As ToolStripMenuItem
     Friend WithEvents miAbout As ToolStripMenuItem
     Friend WithEvents miCustomCommands As ToolStripMenuItem
@@ -294,4 +328,12 @@ Partial Class frmMain
     Friend WithEvents miChatAutoScroll As ToolStripMenuItem
     Friend WithEvents miWebsite As ToolStripMenuItem
     Friend WithEvents miCommandWiki As ToolStripMenuItem
+    Friend WithEvents miSettings As ToolStripMenuItem
+    Friend WithEvents miSupport As ToolStripMenuItem
+    Friend WithEvents CheckForUpdateToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CheckForUpdatesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

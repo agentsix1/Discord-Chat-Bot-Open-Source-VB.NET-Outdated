@@ -5,7 +5,17 @@ Public Class frmMain
     Public selectedChannel = "Console"
     Public current_theme As String
     Public channels As Dictionary(Of String, String()) = New Dictionary(Of String, String())
+    Dim HotKeyRegistry As New HotKeyRegistryClass(Me.Handle)
+
+
+
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D1) 'Connect
+        HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D2) 'Disconnect
+        HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D3) 'Settings
+        HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D4) 'Chat Autoscroll
+        HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D5) 'Default Commands
+        HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D6) 'Users
         'The next 3 lines of code will only be seen in the development versions. As it would keep count builds if the user ran the program haha.
         My.Settings.Build += 1
         My.Settings.Save()
@@ -34,6 +44,7 @@ Public Class frmMain
         My.Settings.Server = "<body bgcolor=" & getConfig("server-background-html", current_theme) & ">" & vbCrLf
         My.Settings.Save()
         tmrGeneral.Enabled = True
+        tmrHotkeys.Enabled = True
     End Sub
 
     Dim onetime As Boolean = True
@@ -58,101 +69,115 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub miDeafultCommands_Click(sender As Object, e As EventArgs) Handles miDeafultCommands.Click
-        frmCommands.Show()
-    End Sub
+    Private Sub menuHandler(sender As Object, e As MouseEventArgs) Handles miAbout.MouseDown, miChatAutoScroll.MouseDown, miCommandWiki.MouseDown, miConnect.MouseDown, miCustomCommands.MouseDown, miDeafultCommands.MouseDown, miDisconnect.MouseDown, miExit.MouseDown, miFile.MouseDown, miHelp.MouseDown, miSettings.MouseDown, miSettingsMenu.MouseDown, miSupport.MouseDown, miUsers.MouseDown, miWebsite.MouseDown
+        If miAbout.Selected Then
 
-    Private Sub miSettings_Click(sender As Object, e As EventArgs) Handles miSettings.Click
-        frmSettings.Show()
-    End Sub
+        ElseIf miChatAutoScroll.Selected Then
 
-    Private Sub miExit_Click(sender As Object, e As EventArgs) Handles miExit.Click
-        Me.Close()
-    End Sub
+        ElseIf miCommandWiki.Selected Then
+            Process.Start("https://github.com/agentsix1/Discord-Chat-Bot-Open-Source-VB.NET/wiki")
+        ElseIf miConnect.Selected Then
+            connect()
+        ElseIf miCustomCommands.Selected Then
 
-    Private Sub miWebsite_Click(sender As Object, e As EventArgs) Handles miWebsite.Click
-        Process.Start("https://opendownloads.gq/discord/")
-    End Sub
-
-    Private Sub miCommandWiki_Click(sender As Object, e As EventArgs) Handles miCommandWiki.Click
-        Process.Start("https://github.com/agentsix1/Discord-Chat-Bot-Open-Source-VB.NET/wiki")
-    End Sub
-
-    Private Sub miSupport_Click(sender As Object, e As EventArgs) Handles miSupport.Click
-        Process.Start("https://opendownloads.gq/discord/#support")
-    End Sub
-
-    Public Sub DisableSound()
-        Dim keyValue As String
-        keyValue = " &#37;SystemRoot%\Media\"
-        If Environment.OSVersion.Version.Major = 5 AndAlso Environment.OSVersion.Version.Minor > 0 Then
-            keyValue += "Windows XP Start.wav"
-        ElseIf Environment.OSVersion.Version.Major = 6 Then
-            keyValue += "Windows Navigation Start.wav"
-        Else
-            Return
-        End If
-        Dim key As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("AppEvents\Schemes\Apps\Explorer\Navigating\.Current", True)
-        key.SetValue(Nothing, "", Microsoft.Win32.RegistryValueKind.ExpandString)
-    End Sub
-
-    Public Sub EnableSound()
-        Dim keyValue As String
-        keyValue = "%SystemRoot%\Media\"
-        If Environment.OSVersion.Version.Major = 5 AndAlso Environment.OSVersion.Version.Minor > 0 Then
-            keyValue += "Windows XP Start.wav"
-        ElseIf Environment.OSVersion.Version.Major = 6 Then
-            keyValue += "Windows Navigation Start.wav"
-        Else
-            Return
-        End If
-        Dim key As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("AppEvents\Schemes\Apps\Explorer\Navigating\.Current", True)
-        key.SetValue(Nothing, keyValue, Microsoft.Win32.RegistryValueKind.ExpandString)
-    End Sub
-
-    Private Sub Hotkeys_click(sender As Object, e As KeyEventArgs) Handles tsChannels.KeyDown, msMenu.KeyDown, cbMessage.KeyDown, Me.KeyDown, tbMessage.KeyDown
-        If e.KeyCode() = Keys.F1 Then
-            'Connect
-        ElseIf e.KeyCode() = Keys.F2 Then
-            'Disconnect
-        ElseIf e.KeyCode() = Keys.F3 Then
-            frmSettings.Show()
-        ElseIf e.KeyCode() = Keys.F4 Then
-            'Chat Auto Scroll
-        ElseIf e.KeyCode() = Keys.F6 Then
+        ElseIf miDeafultCommands.Selected Then
             frmCommands.Show()
-        End If
-    End Sub
-    Private Sub Hotkeys_click(ByVal sender As Object, ByVal e As HtmlElementEventArgs)
-        If e.KeyPressedCode() = Keys.F1 Then
-            'Connect
-        ElseIf e.KeyPressedCode() = Keys.F2 Then
-            'Disconnect
-        ElseIf e.KeyPressedCode() = Keys.F3 Then
+        ElseIf miDisconnect.Selected Then
+            disconnect()
+        ElseIf miExit.Selected Then
+            Me.Close()
+        ElseIf miFile.Selected Then
+
+        ElseIf miHelp.Selected Then
+
+        ElseIf miSettings.Selected Then
             frmSettings.Show()
-        ElseIf e.KeyPressedCode() = Keys.F4 Then
-            'Auto Scroll
-        ElseIf e.KeyPressedCode() = Keys.F6 Then
-            frmCommands.Show()
+        ElseIf miSettingsMenu.Selected Then
+
+        ElseIf miSupport.Selected Then
+            Process.Start("https://opendownloads.gq/discord/#support")
+        ElseIf miUsers.Selected Then
+            frmUsers.Show()
+        ElseIf miWebsite.Selected Then
+            Process.Start("https://opendownloads.gq/discord/")
         End If
     End Sub
-
-    Private Sub wbChat_PreviewKeyDown(sender As Object, e As PreviewKeyDownEventArgs) Handles wbChat.PreviewKeyDown, wbServer.PreviewKeyDown, wbUsers.PreviewKeyDown
-
-        If e.KeyCode() = Keys.F1 Then
-            'Connect
-        ElseIf e.KeyCode() = Keys.F2 Then
-            'Disconnect
-        ElseIf e.KeyCode() = Keys.F3 Then
-            frmSettings.Show()
-        ElseIf e.KeyCode() = Keys.F4 Then
-            'Auto Scroll
-        ElseIf e.KeyCode() = Keys.F6 Then
-            frmCommands.Show()
+    Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+        If m.Msg = HotKeyRegistryClass.Messages.WM_HOTKEY Then
+            Dim ID As String = m.WParam.ToString()
+            Select Case ID
+                Case 0
+                    connect()
+                Case 1
+                    disconnect()
+                Case 2
+                    frmSettings.Show()
+                Case 3
+                    'Chat Autoscroll
+                Case 4
+                    frmCommands.Show()
+                Case 5
+                    frmUsers.Show()
+                Case 6
+            End Select
         End If
+        MyBase.WndProc(m)
+    End Sub
+End Class
+
+Public NotInheritable Class HotKeyRegistryClass
+
+    Private Declare Function RegisterHotKey Lib "user32.dll" (ByVal handle As IntPtr, ByVal id As Int32, ByVal fsModifier As Int32, ByVal vk As Int32) As Int32
+    Private Declare Function UnregisterHotKey Lib "user32.dll" (ByVal handle As IntPtr, ByVal id As Int32) As Int32
+
+    Private Handle As IntPtr = IntPtr.Zero
+    Private Registry As New System.Collections.Generic.List(Of Int32)
+
+    Public Enum Messages
+        [WM_HOTKEY] = &H312
+    End Enum
+    Public Enum Modifiers
+        [MOD_ALT] = &H1
+        [MOD_CTRL] = &H2
+        [MOD_SHIFT] = &H4
+    End Enum
+
+
+    Sub New(ByVal Handle As IntPtr)
+        Me.Handle = Handle
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-
+    Public Sub New()
     End Sub
+
+    Public Function Register(ByVal Modifier As Int32, ByVal Key As System.Windows.Forms.Keys) As Int32
+        Dim ret As Int32
+
+        ret = NextAvailableIndex()
+        Call RegisterHotKey(Me.Handle, ret, Modifier, Key)
+        Registry.Insert(ret, ret)
+        Return ret
+    End Function
+    Public Sub Unregister(ByVal ID As Int32)
+        Call UnregisterHotKey(Me.Handle, ID)
+        Registry.Remove(ID)
+    End Sub
+
+    Private Function NextAvailableIndex() As Int32
+        Dim ret As Int32 = 0
+        Dim n As Int32 = 0
+
+        For i As Int32 = 0 To Registry.Count - 1
+            If Registry(i) = n Then
+                n = n + 1
+            ElseIf n < Registry(i) Then
+                Return n
+            End If
+        Next
+        If n = Registry.Count Then
+            Return Registry.Count
+        End If
+        Return ret
+    End Function
+
 End Class

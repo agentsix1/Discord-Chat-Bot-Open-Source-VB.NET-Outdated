@@ -61,7 +61,8 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to main-backcolor: Control
+        '''  Looks up a localized string similar to #Main Screen
+        '''main-backcolor: Control
         '''main-forecolor: Black
         '''menu-backcolor: Control
         '''menu-forecolor: Black
@@ -78,7 +79,7 @@ Namespace My.Resources
         '''chat-background-html: Black
         '''chat-bold: false
         '''chat-italics: false
-        '''chat-underline [rest of string was truncated]&quot;;.
+        ''' [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property default_theme() As String
             Get
@@ -102,6 +103,15 @@ Namespace My.Resources
         Friend ReadOnly Property settings() As String
             Get
                 Return ResourceManager.GetString("settings", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property users() As String
+            Get
+                Return ResourceManager.GetString("users", resourceCulture)
             End Get
         End Property
     End Module

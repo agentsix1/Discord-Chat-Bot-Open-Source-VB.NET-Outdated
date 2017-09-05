@@ -145,6 +145,12 @@
     <Compile Include="frmUpdates.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmUsers.Designer.vb">
+      <DependentUpon>frmUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="mdlDiscord.vb" />
     <Compile Include="mdlMethods.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -182,6 +188,9 @@
     <EmbeddedResource Include="frmUpdates.resx">
       <DependentUpon>frmUpdates.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmUsers.resx">
+      <DependentUpon>frmUsers.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -203,6 +212,7 @@
     <None Include="packages.config" />
     <None Include="Resources\default-theme.ini" />
     <None Include="Resources\settings.ini" />
+    <None Include="Resources\users.ini" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

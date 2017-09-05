@@ -26,3 +26,4 @@ c:\users\jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Sour
 C:\Users\Jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmCommands.resources
 C:\Users\Jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmCustomCommands.resources
 C:\Users\Jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmUpdates.resources
+C:\Users\Jeremy\documents\visual studio 2017\Projects\Discord-Chat-Bot-Open-Source-VB.NET\Discord-Chat-Bot-Open-Source-VB.NET\obj\Debug\Discord_Chat_Bot_Open_Source_VB.NET.frmUsers.resources

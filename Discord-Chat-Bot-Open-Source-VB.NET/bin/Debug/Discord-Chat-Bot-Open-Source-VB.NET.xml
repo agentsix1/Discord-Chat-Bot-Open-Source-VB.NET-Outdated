@@ -24,7 +24,8 @@ Discord-Chat-Bot-Open-Source-VB.NET
 </member>
 <member name="P:Discord_Chat_Bot_Open_Source_VB.NET.My.Resources.Resources.default_theme">
 <summary>
-  Looks up a localized string similar to main-backcolor: Control
+  Looks up a localized string similar to #Main Screen
+main-backcolor: Control
 main-forecolor: Black
 menu-backcolor: Control
 menu-forecolor: Black
@@ -41,7 +42,7 @@ chat-time-html: orange
 chat-background-html: Black
 chat-bold: false
 chat-italics: false
-chat-underline [rest of string was truncated]&quot;;.
+ [rest of string was truncated]&quot;;.
 </summary>
 </member>
 <member name="P:Discord_Chat_Bot_Open_Source_VB.NET.My.Resources.Resources.settings">
@@ -57,6 +58,11 @@ auto-scroll-default: true
 auto-connect: false
 connected-server: Perfect Dark XBLA
 stream-announce-channel: [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Discord_Chat_Bot_Open_Source_VB.NET.My.Resources.Resources.users">
+<summary>
+  Looks up a localized string similar to .
 </summary>
 </member>
 </members>

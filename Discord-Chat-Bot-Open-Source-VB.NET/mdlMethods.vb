@@ -142,17 +142,19 @@ Module mdlMethods
         Try
             Dim tempa As String() = frmMain.channels(where)
             Dim temp As List(Of String) = tempa.ToList
-            temp.Add(add)
+            temp.Add("<font color=" & getConfig("chat-brackets-html", frmMain.current_theme) & "><</font><font color=" & getConfig("chat-time-html", frmMain.current_theme) & ">" & DateTime.Now.ToString("HH:mm:ss") & "</font><font color=" & getConfig("chat-brackets-html", frmMain.current_theme) & ">></font> " & add)
             tempa = temp.ToArray
             frmMain.channels.Remove(where)
             frmMain.channels.Add(where, tempa)
+            updateChatBrowser(where)
         Catch ex As Exception
             Try
                 Dim tempa As String() = frmMain.channels(where)
                 Dim temp As List(Of String) = tempa.ToList
-                temp.Add(add)
+                temp.Add("<font color=" & getConfig("chat-brackets-html", frmMain.current_theme) & "><</font><font color=" & getConfig("chat-time-html", frmMain.current_theme) & ">" & DateTime.Now.ToString("HH:mm:ss") & "</font><font color=" & getConfig("chat-brackets-html", frmMain.current_theme) & ">></font> " & add)
                 tempa = temp.ToArray
                 frmMain.channels.Add(where, tempa)
+                updateChatBrowser(where)
             Catch ex1 As Exception
             End Try
         End Try
@@ -163,7 +165,47 @@ Module mdlMethods
     End Function
 
     Public Function addGetChat(where As String, add As String) As String()
-        addChat(where, add)
+        addChat(where, "<font color=" & getConfig("chat-brackets-html", frmMain.current_theme) & "><</font><font color=" & getConfig("chat-time-html", frmMain.current_theme) & ">" & DateTime.Now.ToString("HH:mm:ss") & "</font><font color=" & getConfig("chat-brackets-html", frmMain.current_theme) & ">></font> " & add)
+        updateChatBrowser(where)
         Return getChat(where)
     End Function
+
+    Public Sub updateChatBrowser(channel As String)
+        frmMain.wbChat.Navigate("about:blank")
+        Dim html As String = ""
+        For Each str As String In getChat(channel)
+            html += str
+        Next
+        frmMain.wbChat.DocumentText = html
+    End Sub
+
+    Public Sub DisableSound()
+        Dim keyValue As String
+        keyValue = " &#37;SystemRoot%\Media\"
+        If Environment.OSVersion.Version.Major = 5 AndAlso Environment.OSVersion.Version.Minor > 0 Then
+            keyValue += "Windows XP Start.wav"
+        ElseIf Environment.OSVersion.Version.Major = 6 Then
+            keyValue += "Windows Navigation Start.wav"
+        Else
+            Return
+        End If
+        Dim key As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("AppEvents\Schemes\Apps\Explorer\Navigating\.Current", True)
+        key.SetValue(Nothing, "", Microsoft.Win32.RegistryValueKind.ExpandString)
+    End Sub
+
+    Public Sub EnableSound()
+        Dim keyValue As String
+        keyValue = "%SystemRoot%\Media\"
+        If Environment.OSVersion.Version.Major = 5 AndAlso Environment.OSVersion.Version.Minor > 0 Then
+            keyValue += "Windows XP Start.wav"
+        ElseIf Environment.OSVersion.Version.Major = 6 Then
+            keyValue += "Windows Navigation Start.wav"
+        Else
+            Return
+        End If
+        Dim key As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("AppEvents\Schemes\Apps\Explorer\Navigating\.Current", True)
+        key.SetValue(Nothing, keyValue, Microsoft.Win32.RegistryValueKind.ExpandString)
+    End Sub
+
+
 End Module

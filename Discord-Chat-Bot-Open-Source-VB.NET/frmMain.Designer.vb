@@ -45,13 +45,14 @@ Partial Class frmMain
         Me.miCustomCommands = New System.Windows.Forms.ToolStripMenuItem()
         Me.miDeafultCommands = New System.Windows.Forms.ToolStripMenuItem()
         Me.miChatAutoScroll = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miUsers = New System.Windows.Forms.ToolStripMenuItem()
         Me.miAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.miHelp = New System.Windows.Forms.ToolStripMenuItem()
         Me.miWebsite = New System.Windows.Forms.ToolStripMenuItem()
         Me.miSupport = New System.Windows.Forms.ToolStripMenuItem()
         Me.miCommandWiki = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckForUpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.tmrHotkeys = New System.Windows.Forms.Timer(Me.components)
         Me.tsChannels.SuspendLayout()
         Me.msMenu.SuspendLayout()
         Me.SuspendLayout()
@@ -181,14 +182,14 @@ Partial Class frmMain
         'miConnect
         '
         Me.miConnect.Name = "miConnect"
-        Me.miConnect.Size = New System.Drawing.Size(197, 22)
-        Me.miConnect.Text = "Connect                      F1"
+        Me.miConnect.Size = New System.Drawing.Size(218, 22)
+        Me.miConnect.Text = "Connect                      Ctrl+1"
         '
         'miDisconnect
         '
         Me.miDisconnect.Name = "miDisconnect"
-        Me.miDisconnect.Size = New System.Drawing.Size(197, 22)
-        Me.miDisconnect.Text = "Disconnect                 F2"
+        Me.miDisconnect.Size = New System.Drawing.Size(218, 22)
+        Me.miDisconnect.Text = "Disconnect                 Ctrl+2"
         '
         'miExit
         '
@@ -198,7 +199,7 @@ Partial Class frmMain
         '
         'miSettingsMenu
         '
-        Me.miSettingsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miSettings, Me.miCustomCommands, Me.miDeafultCommands, Me.miChatAutoScroll})
+        Me.miSettingsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miSettings, Me.miCustomCommands, Me.miDeafultCommands, Me.miChatAutoScroll, Me.miUsers})
         Me.miSettingsMenu.Name = "miSettingsMenu"
         Me.miSettingsMenu.Size = New System.Drawing.Size(61, 20)
         Me.miSettingsMenu.Text = "Settings"
@@ -206,21 +207,21 @@ Partial Class frmMain
         'miSettings
         '
         Me.miSettings.Name = "miSettings"
-        Me.miSettings.Size = New System.Drawing.Size(200, 22)
-        Me.miSettings.Text = "Settings                        F3"
+        Me.miSettings.Size = New System.Drawing.Size(221, 22)
+        Me.miSettings.Text = "Settings                        Ctrl+3"
         '
         'miCustomCommands
         '
         Me.miCustomCommands.Enabled = False
         Me.miCustomCommands.Name = "miCustomCommands"
-        Me.miCustomCommands.Size = New System.Drawing.Size(200, 22)
+        Me.miCustomCommands.Size = New System.Drawing.Size(221, 22)
         Me.miCustomCommands.Text = "Custom Commands"
         '
         'miDeafultCommands
         '
         Me.miDeafultCommands.Name = "miDeafultCommands"
-        Me.miDeafultCommands.Size = New System.Drawing.Size(200, 22)
-        Me.miDeafultCommands.Text = "Default Commands   F6"
+        Me.miDeafultCommands.Size = New System.Drawing.Size(221, 22)
+        Me.miDeafultCommands.Text = "Default Commands   Ctrl+5"
         '
         'miChatAutoScroll
         '
@@ -228,8 +229,14 @@ Partial Class frmMain
         Me.miChatAutoScroll.CheckState = System.Windows.Forms.CheckState.Checked
         Me.miChatAutoScroll.Enabled = False
         Me.miChatAutoScroll.Name = "miChatAutoScroll"
-        Me.miChatAutoScroll.Size = New System.Drawing.Size(200, 22)
-        Me.miChatAutoScroll.Text = "Chat Autoscroll          F4"
+        Me.miChatAutoScroll.Size = New System.Drawing.Size(221, 22)
+        Me.miChatAutoScroll.Text = "Chat Autoscroll          Ctrl+4"
+        '
+        'miUsers
+        '
+        Me.miUsers.Name = "miUsers"
+        Me.miUsers.Size = New System.Drawing.Size(221, 22)
+        Me.miUsers.Text = "Users                            Ctrl+6"
         '
         'miAbout
         '
@@ -268,15 +275,9 @@ Partial Class frmMain
         Me.CheckForUpdateToolStripMenuItem.Size = New System.Drawing.Size(113, 20)
         Me.CheckForUpdateToolStripMenuItem.Text = "Check For Update"
         '
-        'CheckBox1
+        'tmrHotkeys
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(377, 3)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox1.TabIndex = 19
-        Me.CheckBox1.Text = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.tmrHotkeys.Interval = 10000
         '
         'frmMain
         '
@@ -284,7 +285,6 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1197, 705)
-        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.msMenu)
         Me.Controls.Add(Me.cbMessage)
         Me.Controls.Add(Me.tsChannels)
@@ -335,5 +335,6 @@ Partial Class frmMain
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CheckForUpdatesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents miUsers As ToolStripMenuItem
+    Friend WithEvents tmrHotkeys As Timer
 End Class

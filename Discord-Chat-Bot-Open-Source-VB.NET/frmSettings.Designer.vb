@@ -22,6 +22,12 @@ Partial Class frmSettings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Details")
+        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Settings")
+        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Bot Settings", New System.Windows.Forms.TreeNode() {TreeNode13, TreeNode14})
+        Dim TreeNode16 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Greet Message")
+        Dim TreeNode17 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Idle Message")
+        Dim TreeNode18 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Messages", New System.Windows.Forms.TreeNode() {TreeNode16, TreeNode17})
         Me.btnApply = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.chkAutoConnect = New System.Windows.Forms.CheckBox()
@@ -35,6 +41,8 @@ Partial Class frmSettings
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tbToken = New System.Windows.Forms.TextBox()
         Me.gbDetails = New System.Windows.Forms.GroupBox()
+        Me.tvMenu = New System.Windows.Forms.TreeView()
+        Me.lblSettingsSplash = New System.Windows.Forms.Label()
         Me.gbSettings.SuspendLayout()
         Me.gbDetails.SuspendLayout()
         Me.SuspendLayout()
@@ -42,7 +50,7 @@ Partial Class frmSettings
         'btnApply
         '
         Me.btnApply.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnApply.Location = New System.Drawing.Point(144, 155)
+        Me.btnApply.Location = New System.Drawing.Point(298, 162)
         Me.btnApply.Name = "btnApply"
         Me.btnApply.Size = New System.Drawing.Size(58, 23)
         Me.btnApply.TabIndex = 9
@@ -52,7 +60,7 @@ Partial Class frmSettings
         'btnClose
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClose.Location = New System.Drawing.Point(293, 155)
+        Me.btnClose.Location = New System.Drawing.Point(447, 162)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(51, 23)
         Me.btnClose.TabIndex = 7
@@ -103,7 +111,7 @@ Partial Class frmSettings
         'btnApplyClose
         '
         Me.btnApplyClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnApplyClose.Location = New System.Drawing.Point(208, 155)
+        Me.btnApplyClose.Location = New System.Drawing.Point(362, 162)
         Me.btnApplyClose.Name = "btnApplyClose"
         Me.btnApplyClose.Size = New System.Drawing.Size(79, 23)
         Me.btnApplyClose.TabIndex = 8
@@ -112,22 +120,26 @@ Partial Class frmSettings
         '
         'gbSettings
         '
+        Me.gbSettings.AccessibleRole = System.Windows.Forms.AccessibleRole.Window
+        Me.gbSettings.Controls.Add(Me.lblTrigger)
         Me.gbSettings.Controls.Add(Me.chkAutoConnect)
+        Me.gbSettings.Controls.Add(Me.tbTrigger)
         Me.gbSettings.Controls.Add(Me.chkAutoScroll)
         Me.gbSettings.Controls.Add(Me.cbServers)
         Me.gbSettings.Controls.Add(Me.Label3)
         Me.gbSettings.ForeColor = System.Drawing.Color.White
-        Me.gbSettings.Location = New System.Drawing.Point(8, 81)
+        Me.gbSettings.Location = New System.Drawing.Point(166, 12)
         Me.gbSettings.Name = "gbSettings"
-        Me.gbSettings.Size = New System.Drawing.Size(336, 66)
+        Me.gbSettings.Size = New System.Drawing.Size(336, 75)
         Me.gbSettings.TabIndex = 6
         Me.gbSettings.TabStop = False
         Me.gbSettings.Text = "Bot Settings"
+        Me.gbSettings.Visible = False
         '
         'lblTrigger
         '
         Me.lblTrigger.AutoSize = True
-        Me.lblTrigger.Location = New System.Drawing.Point(254, 51)
+        Me.lblTrigger.Location = New System.Drawing.Point(257, 56)
         Me.lblTrigger.Name = "lblTrigger"
         Me.lblTrigger.Size = New System.Drawing.Size(40, 13)
         Me.lblTrigger.TabIndex = 5
@@ -138,7 +150,7 @@ Partial Class frmSettings
         Me.tbTrigger.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.tbTrigger.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.tbTrigger.ForeColor = System.Drawing.Color.White
-        Me.tbTrigger.Location = New System.Drawing.Point(300, 51)
+        Me.tbTrigger.Location = New System.Drawing.Point(303, 56)
         Me.tbTrigger.MaxLength = 1
         Me.tbTrigger.Name = "tbTrigger"
         Me.tbTrigger.Size = New System.Drawing.Size(30, 13)
@@ -167,24 +179,68 @@ Partial Class frmSettings
         '
         'gbDetails
         '
-        Me.gbDetails.Controls.Add(Me.lblTrigger)
-        Me.gbDetails.Controls.Add(Me.tbTrigger)
         Me.gbDetails.Controls.Add(Me.Label1)
         Me.gbDetails.Controls.Add(Me.tbToken)
         Me.gbDetails.ForeColor = System.Drawing.Color.White
-        Me.gbDetails.Location = New System.Drawing.Point(8, 5)
+        Me.gbDetails.Location = New System.Drawing.Point(166, 12)
         Me.gbDetails.Name = "gbDetails"
-        Me.gbDetails.Size = New System.Drawing.Size(336, 70)
+        Me.gbDetails.Size = New System.Drawing.Size(336, 64)
         Me.gbDetails.TabIndex = 5
         Me.gbDetails.TabStop = False
         Me.gbDetails.Text = "Bot Detail Settings"
+        Me.gbDetails.Visible = False
+        '
+        'tvMenu
+        '
+        Me.tvMenu.AllowDrop = True
+        Me.tvMenu.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.tvMenu.BackColor = System.Drawing.Color.Black
+        Me.tvMenu.ForeColor = System.Drawing.Color.White
+        Me.tvMenu.Location = New System.Drawing.Point(0, 0)
+        Me.tvMenu.Name = "tvMenu"
+        TreeNode13.BackColor = System.Drawing.Color.Black
+        TreeNode13.ForeColor = System.Drawing.Color.White
+        TreeNode13.Name = "cnDetails"
+        TreeNode13.Text = "Details"
+        TreeNode14.Name = "cnSettings"
+        TreeNode14.Text = "Settings"
+        TreeNode15.BackColor = System.Drawing.Color.Black
+        TreeNode15.ForeColor = System.Drawing.Color.White
+        TreeNode15.Name = "nodeBotSettings"
+        TreeNode15.Text = "Bot Settings"
+        TreeNode16.Name = "cnGreet"
+        TreeNode16.Text = "Greet Message"
+        TreeNode17.Name = "cnIdle"
+        TreeNode17.Text = "Idle Message"
+        TreeNode18.Name = "nodeMessages"
+        TreeNode18.Text = "Messages"
+        Me.tvMenu.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode15, TreeNode18})
+        Me.tvMenu.ShowRootLines = False
+        Me.tvMenu.Size = New System.Drawing.Size(160, 191)
+        Me.tvMenu.TabIndex = 10
+        '
+        'lblSettingsSplash
+        '
+        Me.lblSettingsSplash.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblSettingsSplash.ForeColor = System.Drawing.Color.White
+        Me.lblSettingsSplash.Location = New System.Drawing.Point(166, 9)
+        Me.lblSettingsSplash.Name = "lblSettingsSplash"
+        Me.lblSettingsSplash.Size = New System.Drawing.Size(336, 147)
+        Me.lblSettingsSplash.TabIndex = 11
+        Me.lblSettingsSplash.Text = "Welcome to the Settings!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "To view the settings please select an option on the lef" &
+    "t." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "All edits will be made with the menus listed on the left."
         '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(353, 184)
+        Me.ClientSize = New System.Drawing.Size(507, 191)
+        Me.Controls.Add(Me.lblSettingsSplash)
+        Me.Controls.Add(Me.tvMenu)
         Me.Controls.Add(Me.btnApply)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnApplyClose)
@@ -213,4 +269,6 @@ Partial Class frmSettings
     Friend WithEvents Label1 As Label
     Friend WithEvents tbToken As TextBox
     Friend WithEvents gbDetails As GroupBox
+    Friend WithEvents tvMenu As TreeView
+    Friend WithEvents lblSettingsSplash As Label
 End Class

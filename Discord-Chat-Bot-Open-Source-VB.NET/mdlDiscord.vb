@@ -2,6 +2,7 @@
 Module mdlDiscord
     Public WithEvents discord As New DiscordClient
     Dim tmrConnect As Timer = New Timer()
+    Public connected_server As String = ""
     Public Sub connect()
         Try
             If Not getConfig("bot-token", "settings").Equals("empty") Then
@@ -32,10 +33,21 @@ Module mdlDiscord
         If discord.State = ConnectionState.Connected Then
             Try
                 If onetime = 0 Then
+                    If getConfig("connected-server", "settings").Equals("empty") Then
+                        setConfig("connected-server", discord.Servers.FirstOrDefault().Name, "settings")
+                        connected_server = getConfig("connected-server", "settings")
+                    Else
+                        connected_server = getConfig("connected-server", "settings")
+                    End If
                     addChat("Console", "<font color=" & getConfig("chat-connected-html", frmMain.current_theme) & ">Connected!</font><br>")
-                    onetime += 1
-                    connecting = False
-                End If
+                        onetime += 1
+                        connecting = False
+                        Try
+
+                        Catch ex As Exception
+
+                        End Try
+                    End If
             Catch ex As Exception
 
             End Try

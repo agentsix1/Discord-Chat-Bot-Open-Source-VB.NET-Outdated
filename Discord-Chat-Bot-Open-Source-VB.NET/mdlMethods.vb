@@ -164,11 +164,37 @@ Module mdlMethods
         Return frmMain.channels(where)
     End Function
 
+    Public Function getChat(where As String, type As String) As Object
+        Select Case type
+            Case "str"
+                Dim output As String = ""
+                For Each line As String In frmMain.channels(where)
+                    output += line
+                Next
+                Return output
+        End Select
+    End Function
+
     Public Function addGetChat(where As String, add As String) As String()
         addChat(where, "<font color=" & getConfig("chat-brackets-html", frmMain.current_theme) & "><</font><font color=" & getConfig("chat-time-html", frmMain.current_theme) & ">" & DateTime.Now.ToString("HH:mm:ss") & "</font><font color=" & getConfig("chat-brackets-html", frmMain.current_theme) & ">></font> " & add)
         updateChatBrowser(where)
         Return getChat(where)
     End Function
+
+    Public Sub clearChat(where As String)
+        Try
+            frmMain.channels.Remove(where)
+            frmMain.channels.Add(where, {"<body bgcolor=" & getConfig("chat-background-html", frmMain.current_theme) & ">"})
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Public Sub createChat(where As String)
+        Try
+            frmMain.channels.Add(where, {"<body bgcolor=" & getConfig("chat-background-html", frmMain.current_theme) & ">"})
+        Catch ex As Exception
+        End Try
+    End Sub
 
     Public Sub updateChatBrowser(channel As String)
         frmMain.wbChat.Navigate("about:blank")

@@ -4,6 +4,7 @@ Public Class frmMain
     Public ver As String = "DEV build " & My.Settings.Build
     Public selectedChannel = "Console"
     Public current_theme As String
+    Public alert As String() = {}
     Public channels As Dictionary(Of String, String()) = New Dictionary(Of String, String())
     Dim HotKeyRegistry As New HotKeyRegistryClass(Me.Handle)
 
@@ -16,6 +17,7 @@ Public Class frmMain
         HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D4) 'Chat Autoscroll
         HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D5) 'Default Commands
         HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_CTRL, Keys.D6) 'Users
+        HotKeyRegistry.Register(HotKeyRegistryClass.Modifiers.MOD_ALT, Keys.F4) 'Users
         'The next 3 lines of code will only be seen in the development versions. As it would keep count builds if the user ran the program haha.
         My.Settings.Build += 1
         My.Settings.Save()
@@ -30,6 +32,9 @@ Public Class frmMain
         If Not System.IO.File.Exists(Application.StartupPath() & "\Resources\default-theme.ini") Then
             System.IO.File.WriteAllText(Application.StartupPath() & "\Resources\default-theme.ini", My.Resources.default_theme)
         End If
+        If Not System.IO.File.Exists(Application.StartupPath() & "\Resources\users.ini") Then
+            System.IO.File.WriteAllText(Application.StartupPath() & "\Resources\users.ini", My.Resources.default_theme)
+        End If
         current_theme = getConfig("current-theme", "settings")
         updateTheme()
         wbUsers.Navigate("about:blank")
@@ -40,6 +45,7 @@ Public Class frmMain
         channels.Add("Console", consoleHTML)
         channels.Add("All Channels", allChannelsHTML)
         addChat("Console", "<font color=white>--- </font> <font color=lime>Discord Chat Bot (</font><font color=orange>Open Source</font><font color=lime>)</font><font color=darkgray> vDev Build " & My.Settings.Build & " </font><font color=white>---</font><br>")
+        addChat("All Channels", "<font color=" & getConfig("chat-loaded-html", current_theme) & ">The chat has been loaded</font>")
         My.Settings.Users = "<body bgcolor=" & getConfig("users-background-html", current_theme) & ">" & vbCrLf
         My.Settings.Server = "<body bgcolor=" & getConfig("server-background-html", current_theme) & ">" & vbCrLf
         My.Settings.Save()
@@ -51,9 +57,7 @@ Public Class frmMain
     Dim abc As Integer = 0
 
     Private Sub tmrGeneral_Tick(sender As Object, e As EventArgs) Handles tmrGeneral.Tick
-
         If discord.State = ConnectionState.Connected Then
-
         ElseIf onetime Then
             Dim html = ""
             For Each it As String In channels("Console")
@@ -69,7 +73,7 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub menuHandler(sender As Object, e As MouseEventArgs) Handles miAbout.MouseDown, miChatAutoScroll.MouseDown, miCommandWiki.MouseDown, miConnect.MouseDown, miCustomCommands.MouseDown, miDeafultCommands.MouseDown, miDisconnect.MouseDown, miExit.MouseDown, miFile.MouseDown, miHelp.MouseDown, miSettings.MouseDown, miSettingsMenu.MouseDown, miSupport.MouseDown, miUsers.MouseDown, miWebsite.MouseDown
+    Private Sub menuHandler(sender As Object, e As MouseEventArgs) Handles miChatAutoScroll.MouseDown, miConnect.MouseDown, miCustomCommands.MouseDown, miDeafultCommands.MouseDown, miDisconnect.MouseDown, miExit.MouseDown, miFile.MouseDown, miSettings.MouseDown, miSettingsMenu.MouseDown, miUsers.MouseDown, miWebsite.MouseDown, miSupport.MouseDown, miHelp.MouseDown, miAbout.MouseDown, miCommandWiki.MouseDown
         If miAbout.Selected Then
 
         ElseIf miChatAutoScroll.Selected Then
@@ -119,9 +123,62 @@ Public Class frmMain
                 Case 5
                     frmUsers.Show()
                 Case 6
+                    Me.Close()
             End Select
         End If
         MyBase.WndProc(m)
+    End Sub
+
+    Private Sub tsChannels_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles tsChannels.ItemClicked
+        If Not e.ClickedItem.Text.Equals("") Then
+            e.ClickedItem.BackColor = Drawing.Color.FromName(getConfig("channel-tab-backcolor-selected", current_theme))
+            e.ClickedItem.ForeColor = Drawing.Color.FromName(getConfig("channel-tab-forecolor-selected", current_theme))
+
+            Dim i = -1
+            For Each item As ToolStripItem In tsChannels.Items
+                i += 1
+                If selectedChannel.Equals(item.Text) Then
+                    item.BackColor = Drawing.Color.FromName(getConfig("channel-tab-backcolor-unselected", current_theme))
+                    item.ForeColor = Drawing.Color.FromName(getConfig("channel-tab-forecolor-unselected", current_theme))
+                End If
+            Next
+            selectedChannel = e.ClickedItem.Text
+
+
+        End If
+
+        If alert.Contains(e.ClickedItem.Text) Then
+            Dim remItem As List(Of String) = alert.ToList
+            remItem.Remove(e.ClickedItem.Text)
+            alert = remItem.ToArray
+        End If
+
+
+
+        For Each item As ToolStripItem In tsChannels.Items
+            If Not item.Equals(e.ClickedItem) Then
+                item.BackColor = Drawing.Color.FromName(getConfig("channel-tab-backcolor-unselected", current_theme))
+                item.ForeColor = Drawing.Color.FromName(getConfig("channel-tab-forecolor-unselected", current_theme))
+            Else
+                item.BackColor = Drawing.Color.FromName(getConfig("channel-tab-backcolor-selected", current_theme))
+                item.ForeColor = Drawing.Color.FromName(getConfig("channel-tab-forecolor-selected", current_theme))
+                Select Case item.Text
+                    Case "All Channels"
+                        wbChat.Navigate("about:blank")
+                        wbChat.DocumentText = getChat("All Channels", "str")
+                        tbMessage.Enabled = False
+                    Case "Console"
+                        wbChat.Navigate("about:blank")
+                        wbChat.DocumentText = getChat("Console", "str")
+                        tbMessage.Enabled = False
+                    Case Else
+                        wbChat.Navigate("about:blank")
+                        wbChat.DocumentText = getChat(item.Text, "str")
+                        tbMessage.Enabled = True
+                End Select
+
+            End If
+        Next
     End Sub
 End Class
 
